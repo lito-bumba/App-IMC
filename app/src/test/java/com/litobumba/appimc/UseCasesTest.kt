@@ -6,21 +6,25 @@ import org.junit.Test
 
 class UseCasesTest {
 
-    val peso = 60.0
-    val altura = 1.75
+    private val peso = 60.0
+    private val altura = 1.75
 
     @Test
     fun calcularIMC() {
-        val esperado = 19.59
-        val resultado = UseCases().CalcularIMC(peso, altura)
+        val esperado = 19.591836734693878
+        val resultado = UseCases().calcularIMC(altura, peso)
         assertEquals(esperado.toString(), resultado.toString())
     }
 
     @Test
     fun pegarClassificacao() {
-        val imc = UseCases().CalcularIMC(peso, altura)
-        val esperado = "NORMAL"
-        val resultado = UseCases().PegarClassificacao(imc).classificacao
+        val imc = UseCases().calcularIMC(peso, altura)
+        val esperado = Resultado(
+            imc.toString().replace('.', ','),
+            "NORMAL",
+            "0"
+        )
+        val resultado = UseCases().pegarClassificacao(imc)
         assertEquals(esperado, resultado)
     }
 }
