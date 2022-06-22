@@ -149,7 +149,7 @@ fun TelaPrincipal(viewModel: AppViewModel, expand: () -> Unit) {
                 .height(50.dp)
                 .width(150.dp)
         ) {
-            Text(text = "Enter", fontSize = 18.sp)
+            Text(text = "Calcular", fontSize = 18.sp)
         }
     }
 }
